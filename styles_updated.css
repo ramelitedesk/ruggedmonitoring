@@ -1303,3 +1303,229 @@ p{ margin-top:0; }
     transform:none !important;
   }
 }
+
+
+/* =========================================================
+   SCROLL ANIMATIONS
+   ========================================================= */
+
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s cubic-bezier(.22, 1, .36, 1);
+}
+
+.scroll-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+.scroll-card {
+    opacity: 0;
+    transform: translateY(35px);
+    transition:
+        opacity 0.65s ease var(--delay),
+        transform 0.65s cubic-bezier(.22, 1, .36, 1) var(--delay);
+}
+
+.scroll-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* =========================================================
+   HERO ANIMATION
+   ========================================================= */
+
+.hero-animate {
+    opacity: 0;
+    transform: translateY(25px);
+    animation:
+        heroReveal 0.75s cubic-bezier(.22, 1, .36, 1)
+        var(--hero-delay)
+        forwards;
+}
+
+@keyframes heroReveal {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   HEADER SCROLL
+   ========================================================= */
+
+.site-header {
+    transition:
+        box-shadow .3s ease,
+        background .3s ease;
+}
+
+.site-header.scrolled {
+    box-shadow:
+        0 8px 30px rgba(23, 33, 43, .10);
+}
+
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+@media (max-width: 940px) {
+
+    .nav-toggle {
+        position: relative;
+        z-index: 110;
+        display: flex !important;
+        width: 42px;
+        height: 42px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 5px;
+        background: #ffffff;
+        border: 1px solid #dce4eb;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+
+    .nav-toggle span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: #17212b;
+        transition:
+            transform .25s ease,
+            opacity .25s ease;
+    }
+
+
+    .nav-toggle.is-open span:nth-child(1) {
+        transform:
+            translateY(7px)
+            rotate(45deg);
+    }
+
+
+    .nav-toggle.is-open span:nth-child(2) {
+        opacity: 0;
+    }
+
+
+    .nav-toggle.is-open span:nth-child(3) {
+        transform:
+            translateY(-7px)
+            rotate(-45deg);
+    }
+
+
+    .main-nav {
+        display: none !important;
+    }
+
+
+    .main-nav.mobile-open {
+        display: block !important;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 105;
+        background: #ffffff;
+        padding: 1.5rem 24px;
+        border-bottom: 1px solid #dce4eb;
+        box-shadow:
+            0 15px 30px rgba(23,33,43,.10);
+    }
+
+
+    .main-nav.mobile-open ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+
+    .main-nav.mobile-open a {
+        display: block;
+        padding: .55rem 0;
+        color: #17212b;
+    }
+
+
+    .nav-cta {
+        display: none !important;
+    }
+
+
+    .nav-cta.mobile-open {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 245px);
+        left: 0;
+        right: 0;
+        z-index: 106;
+        background: #ffffff;
+        padding: 0 24px 1.5rem;
+        flex-direction: column;
+        align-items: stretch;
+        border-bottom: 1px solid #dce4eb;
+    }
+
+
+    .nav-cta.mobile-open .btn {
+        width: 100%;
+    }
+
+}
+
+
+/* =========================================================
+   GRAPH
+   ========================================================= */
+
+.scope-trace {
+    stroke: #08AEB8 !important;
+    stroke-width: 3 !important;
+    fill: none !important;
+    filter:
+        drop-shadow(0 0 5px rgba(8,174,184,.45));
+}
+
+
+.scope-grid line {
+    stroke: #dce4eb;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .scroll-reveal,
+    .scroll-card,
+    .hero-animate {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+        transition: none !important;
+    }
+
+   }
