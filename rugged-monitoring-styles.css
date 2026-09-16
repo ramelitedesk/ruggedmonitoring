@@ -1149,6 +1149,7 @@ p{ margin-top:0; }
 .footer-brand img{
   height:30px;
   margin-bottom:1rem;
+   width:auto;
 }
 
 .footer-brand p{
@@ -2057,6 +2058,7 @@ p{ margin-top:0; }
 
   .footer-brand img{
     height:28px;
+     width:auto;
   }
 
   .footer-bottom{
